@@ -11,12 +11,27 @@
 
 <%@page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"%>
- 
+
 	你好 JSP
 	 
 	<br>
 	 
 	<%=new Date().toLocaleString()%><br>
 	
+	<%-- 
+		2、<%=%>就相当于<%out.println()%>    
+	 --%>
 	<%="hello jsp"%><br>
 	<% out.println("hello jsp");%>
+	
+	<%--
+		3、通过指令<%@include file="footer.jsp" %> 在hello.jsp中包含该页面
+	 --%>
+	<%@include file="foot01.jsp" %>
+	
+	<%--
+		4、通过动作<jsp:include page="footer.jsp" />在hello.jsp中包含该页面
+	 --%>
+	<jsp:include page="foot02.jsp">
+		<jsp:param value="2017" name="year"/>
+	</jsp:include>
